@@ -1,6 +1,6 @@
 # Camera demo guide
 
-The assignment requests 2–3 minutes with camera enabled: explain the problem, show the product and actual local Ollama, and discuss one technical trade-off. A separately prepared longer cut is approximately 4:22; evaluator permission for the extension and a verified YouTube URL are still needed.
+The assignment requests 2–3 minutes with camera enabled: explain the problem, show the product and actual local Ollama, and discuss one technical trade-off. The prepared longer cut is approximately 4:22. [Watch the recorded demo](https://youtu.be/9fp6Sky3jTg); evaluator permission for the extension and signed-out access verification remain separate checks.
 
 | Segment | Show / explain |
 | --- | --- |

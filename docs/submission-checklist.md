@@ -9,7 +9,7 @@
 | Architecture | [Architecture](architecture.md), [decisions](decisions.md) |
 | AI coding evidence | [Sanitized logs and summaries](agent-transcripts/README.md); complete conversation export unavailable |
 | Tests | [Test plan](test-plan.md), [verification](verification.md) |
-| Camera-enabled YouTube demo | Show problem, product, actual local Ollama, and one trade-off; upload URL/access verification pending |
+| Camera-enabled YouTube demo | [Watch the recorded demo](https://youtu.be/9fp6Sky3jTg); verify evaluator access |
 
 Before submitting:
 

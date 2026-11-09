@@ -4,7 +4,14 @@
 
 A local research workspace for Lenny’s Podcast. Search interview transcripts, inspect cited passages, continue a saved conversation, and review writing before exporting it as Markdown or HTML.
 
-[Quick start](#quick-start) · [Reviewed demo](#reviewed-demo) · [Architecture](#architecture) · [Documentation](#documentation) · [Verification](docs/verification.md)
+[Open local workspace](http://localhost:18120/workspace) · [Watch the demo](https://youtu.be/9fp6Sky3jTg) · [Quick start](#quick-start) · [Reviewed demo](#reviewed-demo) · [Architecture](#architecture) · [Documentation](#documentation) · [Verification](docs/verification.md)
+
+## Demo links
+
+- **Local workspace:** [localhost:18120/workspace](http://localhost:18120/workspace) — the existing demo on this machine. Localhost links require the app to be running on the device opening them.
+- **YouTube walkthrough:** [Watch the recorded demo](https://youtu.be/9fp6Sky3jTg).
+
+The local workspace includes unpublished UI additions; the setup below describes the published source revision.
 
 ## What it does
 
@@ -45,7 +52,10 @@ python3 scripts/verify_snapshot.py --root ".cache/corpus/$CORPUS_REVISION"
 
 **3. Start the app and index three demo interviews.**
 
+For a fresh installation, set the web port before bootstrap. If the existing workspace is already running, use the demo link above instead of starting another instance.
+
 ```sh
+export WEB_HOST_PORT=18120
 python3 scripts/bootstrap.py
 python3 scripts/wait_ready.py
 python3 scripts/docker.py compose exec -T api python -m backend.ingest \
@@ -55,7 +65,7 @@ python3 scripts/docker.py compose exec -T api python -m backend.ingest \
   --source-path episodes/shreyas-doshi-live/transcript.md --deadline-seconds 900
 ```
 
-Open **[localhost:8080/workspace](http://localhost:8080/workspace)**. Bootstrap creates an ignored `.env` only if absent; the API applies migrations on startup. Readiness alone does not mean the corpus has been indexed. The quick start indexes three interviews, not the full corpus.
+Open **[localhost:18120/workspace](http://localhost:18120/workspace)**. Bootstrap creates an ignored `.env` only if absent; the API applies migrations on startup. Readiness alone does not mean the corpus has been indexed. The quick start indexes three interviews, not the full corpus.
 
 Already running Lenny? Preserve its project, ports, and volumes. For a separate evaluator installation, follow [isolated setup](docs/handoff.md#isolated-setup) before bootstrapping.
 
@@ -123,6 +133,6 @@ See the [test plan](docs/test-plan.md), [troubleshooting](docs/troubleshooting.m
 | Setup, operations, and extension guidance | [Handoff](docs/handoff.md), [troubleshooting](docs/troubleshooting.md) |
 | AI coding evidence | [Sanitized evidence](docs/agent-transcripts/README.md); complete conversation export remains unavailable |
 | Automated and manual verification | [Test plan](docs/test-plan.md), [results summary](docs/verification.md) |
-| Camera demo and submission | [Checklist](docs/submission-checklist.md); verified YouTube URL pending |
+| Camera demo and submission | [YouTube demo](https://youtu.be/9fp6Sky3jTg), [checklist](docs/submission-checklist.md) |
 
 The prototype has known answer-completeness, abstention, essay-quality, and local-resource limitations. Contract tests and valid citations do not establish semantic acceptance. [Current limitations](docs/known-issues.md)
