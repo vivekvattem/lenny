@@ -6,6 +6,12 @@ Lenny helps product and growth teams turn long podcast interviews into research 
 
 [Run locally](#quick-start) · [See the workflow](#try-lenny) · [Architecture](#system-architecture) · [Deliverables](#assignment-deliverables) · [What we verified](#verification-and-limitations)
 
+## Manually reviewed demo
+
+[Read the essay (Markdown)](docs/demo/manually-reviewed-essay.md) · [Download the HTML export](docs/demo/manually-reviewed-essay.html) · [Verification and limitations](docs/demo/verification.md)
+
+This historical reviewed fixture contains **1,208 words and nine manual edits**; it is not a fresh autonomous generation. Both exports were reopened and matched the saved session. The separate frozen acceptance result remains **0/5**, despite **148/148 passing backend contracts**. Rejected chat demos and private evidence are excluded.
+
 ## Quick start
 
 On macOS, install **Git, Python 3.11+, Docker Desktop, and Ollama**. Start Docker Desktop and Ollama. If you already run Lenny, use the [isolated setup](#advanced-setup) below to avoid port and database conflicts.
