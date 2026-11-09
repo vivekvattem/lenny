@@ -1,5 +1,7 @@
 # Risks and trade-offs — reconciled8 November2026
 
+Historical register: some snapshot/publication statuses describe earlier revisions. Use [project status](progress.md) and [verification](verification.md) for the current recorded scope.
+
 Owner:project builder for implementation;candidate for credentials/publication/video/submission. Likelihood/impact are judgments,not measured probabilities.
 
 | Risk | Actual outcome / mitigation | Residual/user impact |
@@ -15,4 +17,4 @@ Owner:project builder for implementation;candidate for credentials/publication/v
 | High:incomplete publication/setup | Root uncommitted prerequisites preserved;private exact candidate excludes experiment;Phase11 isolated rehearsal. | Current public snapshot is not complete source. No release recommendation from a private snapshot alone. |
 | Medium:deadline/rights/deliverables | Keep explicit requirement/status register and no fabricated submission. | Candidate must verify deadline/form,rights,complete coding export,video/camera/access and receipt. |
 
-Quality/release gate remains open even if setup succeeds. [Known issues](known-issues.md),[Phase10](phase-10-report.md),[Phase11](phase-11-report.md).
+Quality/release gate remains open even if setup succeeds. [Known issues](known-issues.md),[Phase10](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-10-report.md),[Phase11](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-11-report.md).

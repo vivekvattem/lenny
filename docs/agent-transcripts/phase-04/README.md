@@ -1,6 +1,6 @@
 # Phase 4 actual evidence
 
-Actual commands/results and labelled review metadata from 6 November 2026; not a complete coding conversation export. [Report](../../phase-04-report.md), [operations](../../phase-04-operations.md) and [evaluation rubric](../../../eval/README.md) explain scope.
+Actual commands/results and labelled review metadata from 6 November 2026; not a complete coding conversation export. [Report](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-04-report.md), [operations](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-04-operations.md) and [evaluation rubric](../../../eval/README.md) explain scope.
 
 | Path | Evidence and limits |
 | --- | --- |

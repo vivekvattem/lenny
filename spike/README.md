@@ -1,6 +1,6 @@
 # Phase 1 disposable local integration spike
 
-This proves a narrow FastAPI/Python -> Pi RPC -> local Ollama -> fixture tool -> response path. It is not the product backend, a RAG evaluation or proof of essay quality. See [phase report](../docs/phase-01-report.md) for actual gate, failures, timing and limitations.
+This proves a narrow FastAPI/Python -> Pi RPC -> local Ollama -> fixture tool -> response path. It is not the product backend, a RAG evaluation or proof of essay quality. See [phase report](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-01-report.md) for actual gate, failures, timing and limitations.
 
 Requirements observed here: macOS arm64 M2 / 8 GiB, Python 3.13.5, Node 24.9.0 / npm 11.6.0, Ollama 0.30.11. Pi was installed project-locally from the package identified by pi.dev and checked against official source metadata. Installed CLI reports 1.5.0.
 

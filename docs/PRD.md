@@ -1,5 +1,7 @@
 # Product requirements and discovery
 
+Historical product/requirement record. For the latest recorded totals and scope, see [verification](verification.md) and [project status](progress.md). Documentation cleanup does not reclassify prior outcomes.
+
 First written6 November2026 before implementation. The customer framing is a stated working assumption,not a claim of client interviews. Current acceptance8 November is reconciled against the selected pre-experiment Phase10 candidate.
 
 | Discovery element | Decision and actual evidence |
@@ -25,11 +27,11 @@ Essay facts/citations are server-owned exact selected quotes;Pi drafts advice. D
 | Full pinned corpus,identity and source integrity |303/303 episodes,12770 passages;294 loaded/9 skipped/0 failed;repeat303 skipped/0 duplicates. Original data retained. |
 | Retrieval relevance target85% Recall@8 | Full-index hybrid56.25% tuning16/81.25% observed holdout8. Not met;gold judgments cover nine development sources,not random full-corpus quality. |
 | Source support and useful answers |13 Phase10 answerable outputs directly reviewed;4 adequate.16 quoted outputs had valid supported exact quotes,but many were irrelevant/incomplete. Unsupported gaps1/4 via existing guard. |
-| Frozen five user scenarios |Original0/5;bounded rerun0/5. Not a user study. [Frozen definitions](scenarios.md),[results](phase-10-report.md). |
+| Frozen five user scenarios |Original0/5;bounded rerun0/5. Not a user study. [Frozen definitions](scenarios.md),[results](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-10-report.md). |
 | Local/cloud boundary | Local default qwen3:0.6b chat/1.7b advice. Previous one-case Pi/OpenRouter Gemini chat passed6.513s;no cloud fallback. Anthropic has config/mocks,not a live validation claim. |
 | Persistence/rendering | Prior reviewed artifact and both exports survive restart;API/source ownership and hostile renderer tests pass in stated scopes. Fresh isolated README rehearsal is reported separately. |
 | Release acceptance | Quality gate open. Phase11 setup/docs verification does not erase these failures. |
 
 ## Delivery and next boundary
 
-The selected candidate restores41 source hashes from the verified120-contract Phase10 baseline while retaining UI polish,full-index compatibility and OpenRouter fix. Bounded changes and all raw evidence remain separate and preserved. Phase11 rehearses a complete private local snapshot in a clean checkout/fresh volumes;the previously published snapshot is incomplete. No public-source push,video,upload or submission is authorized here. [Requirement/deliverable register](requirements.md),[Phase11 report](phase-11-report.md).
+The selected candidate restores41 source hashes from the verified120-contract Phase10 baseline while retaining UI polish,full-index compatibility and OpenRouter fix. Bounded changes and all raw evidence remain separate and preserved. Phase11 rehearses a complete private local snapshot in a clean checkout/fresh volumes;the previously published snapshot is incomplete. No public-source push,video,upload or submission is authorized here. [Requirement/deliverable register](requirements.md),[Phase11 report](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-11-report.md).

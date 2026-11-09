@@ -1,5 +1,7 @@
 # Assumptions — reconciled8 November2026
 
+Historical register: some snapshot/publication statuses describe earlier revisions. Use [project status](progress.md) and [verification](verification.md) for the current recorded scope.
+
 Working product assumptions are not client approval. Observations refer to the selected pre-experiment Phase10 candidate unless noted.
 
 | Assumption | Reason/user impact | Actual verification and residual uncertainty |
@@ -14,4 +16,4 @@ Working product assumptions are not client approval. Observations refer to the s
 | Complete source/setup can be reproduced | Evaluator needs documented startup. | Public snapshot known incomplete;Phase11 uses an exact complete private local candidate revision/fresh volumes. Model/base-image download time on a new machine remains unmeasured. |
 | Five frozen scenarios diagnose product value | Connect engineering choices to user jobs. | Proposed4/5 target,actual0/5 twice. No external participants/random sample/user-study claim. |
 
-[Phase10 measurements](phase-10-report.md),[Phase11 setup/revision/results](phase-11-report.md). No assumption is upgraded by a fixture or an import-only integration.
+[Phase10 measurements](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-10-report.md),[Phase11 setup/revision/results](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-11-report.md). No assumption is upgraded by a fixture or an import-only integration.

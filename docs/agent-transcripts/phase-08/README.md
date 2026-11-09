@@ -6,4 +6,4 @@ Full transcript/source payloads, raw API snapshots, raw model drafts, reviewed e
 
 The local UI journey used the full working tree. The user explicitly chose to leave Phase6/7 runtime prerequisites uncommitted, so this remote snapshot is incomplete. The browser regression also needs the local Phase7 artifact helper and labelled fixture. Mock UI results do not establish model quality, lifecycle cleanup or live persistence. Actual reload/reopen passed; service-restart proof is separately Phase7.
 
-See [Phase8 report](../../phase-08-report.md). Stop before Prompt09.
+See [Phase8 report](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-08-report.md). Stop before Prompt09.

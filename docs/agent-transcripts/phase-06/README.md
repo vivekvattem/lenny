@@ -8,4 +8,4 @@ The live essay gate failed. The initial104310 attempt produced an outline then s
 - failure-diagnostics.json: exact projection of the corrected run's saved protocol error. Raw stdout/stderr are separate in private chat_traces.
 - preservation-baseline.json: pre-Phase6 historical file identities. Public redaction may change exported files; private originals remain hash-identical under ignored.cache/publication-originals.
 
-No source/model download or cloud inference. Browser remains unverified. No Phase7 work. See [Phase6 report](../../phase-06-report.md) and [publication notes](../PUBLICATION.md). These are actual command/runtime records and labelled reviews, not a complete coding-conversation export.
+No source/model download or cloud inference. Browser remains unverified. No Phase7 work. See [Phase6 report](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-06-report.md) and [publication notes](../PUBLICATION.md). These are actual command/runtime records and labelled reviews, not a complete coding-conversation export.

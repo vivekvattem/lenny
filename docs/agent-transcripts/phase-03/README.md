@@ -1,6 +1,6 @@
 # Phase 3 evidence
 
-These are actual command outputs and labelled audit/review metadata from 6 November 2026, not a complete conversation transcript. [Report](../../phase-03-report.md) and [operations](../../phase-03-operations.md) explain scope and exact commands. Earlier Phase 1/2 evidence is preserved.
+These are actual command outputs and labelled audit/review metadata from 6 November 2026, not a complete conversation transcript. [Report](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-03-report.md) and [operations](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-03-operations.md) explain scope and exact commands. Earlier Phase 1/2 evidence is preserved.
 
 | Path | Meaning |
 | --- | --- |

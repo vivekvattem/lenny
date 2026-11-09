@@ -14,4 +14,4 @@ The files contain actual bounded command/runtime output plus explicitly labelled
 
 Raw RPC stdout and stderr are separate in the private `chat_traces` volume; earlier streams are ignored `.cache/phase5-private`, protected at parent0700. Shareable projections omit raw prompts/source packets except the deliberately inspected limited original passages. The private volume must not be published. The original Phase1 spike and Phase1–4 evidence are unchanged. Full transcript redistribution rights and genuine complete coding-conversation export remain unresolved.
 
-See [Phase5 report](../../phase-05-report.md) and [operations](../../phase-05-operations.md). Stop before Prompt06 until the user gives a go-ahead.
+See [Phase5 report](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-05-report.md) and [operations](https://github.com/vivekvattem/lenny/blob/3e783b2d14c9f14e9852dcbc266397be07feb197/docs/phase-05-operations.md). Stop before Prompt06 until the user gives a go-ahead.

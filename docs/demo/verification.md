@@ -49,14 +49,6 @@ Some historical edited inline essay facts do not have a corresponding exact span
 
 The reviewed fixture is separate from the fresh acceptance essay. At the verified revision, **148/148 backend contracts passed** in 20.597 s (exit0) on a separate test database; those checks included unit/mock generation plus real PostgreSQL/local embedding scopes. They do not establish answer/essay quality. The full pinned index contained 303 episodes/12,770 passages. Neither the backend suite nor A–E was rerun for this publication.
 
-| Case | Result | Recorded failure |
-| --- | --- | --- |
-| A | FAIL | Unsupported survey conclusion and incomplete use-of-responses answer. |
-| B | FAIL | Incomplete/conflated LNO explanation; requested bug-triage checklist missing. |
-| C | FAIL | Fresh unedited 1,204-word essay passed format/count screens but failed support, hook, progression and takeaway review. |
-| D | FAIL | Both independent requests returned `rpc_rejected`; no supported answers/artifacts. |
-| E | FAIL | Unsupported request returned `rpc_rejected`, not an abstention after successful retrieval. Its reformulation completed, but that did not pass the full journey. |
-
-The initial E preflight also returned 503 `agent_unavailable` before inference; it recovered without code/config changes. Original failures remain in private evidence. All task caps were met, but operational/semantic gates failed. No release-quality or autonomous-writing pass is implied by this reviewed fixture or the passing contracts.
+The full A–E journeys did not pass semantic and operational acceptance. Detailed case-by-case narratives are omitted from this demo page; the score remains **0/5** and the [verification summary](../verification.md) preserves its scope. Original reports remain retained privately and in historical published records. No release-quality or autonomous-writing pass is implied by the reviewed fixture or passing contracts.
 
 This demo publication includes the two reviewed essay exports, this sanitized summary and README links. The two rejected chat demos, raw logs/API payloads, private traces/screenshots, credentials, corpus/database files and unpublished frontend review work are excluded.

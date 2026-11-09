@@ -17,4 +17,4 @@ Use the visible request reference and saved session/run ID to correlate safe JSO
 
 Nonfatal psycopg ResourceWarnings occurred at contract-process shutdown; passing assertions do not prove all teardown warnings resolved. Production engine disposal is in app lifespan, and model-process/bridge cleanup has explicit tests. Report repeatable leaks instead of suppressing warnings.
 
-Current Git publication deliberately excludes earlier runtime prerequisites: the full local tree works, but origin/main alone is incomplete. Obtain explicit publication authorization before changing that scope. One public cited OpenRouter smoke passed after removing follow-up JSON response mode alongside tool history; see phase-09-openrouter-diagnosis.md. Keep all keys configured out of band; never send them through chat.
+Use the published README for the current source snapshot. Cloud checks are historical and do not establish present credentials or credits. See the [verification summary](verification.md). Keep keys configured server-side; never send them through chat.

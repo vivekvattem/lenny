@@ -1,16 +1,6 @@
-# Current execution status —8 November2026
+# Frozen acceptance scenarios
 
-Original Phase10 **0/5**;bounded-pass rerun **0/5**;proposed target **4/5**. No user study. Questions,pass criteria and original protocol were not changed to improve scores. Complete original pre-execution definition is retained verbatim below;its historical “not run”/pending statements are not current status. Original freeze hash remains recorded in phase-10/scenario-protocol.json.
-
-| Case | Original failure | Bounded rerun failure |
-| --- | --- | --- |
-| A | Survey/use-of-responses omitted | False abstention despite available evidence |
-| B | LNO/follow-up incomplete | Definition improved;no useful bug-triage checklist |
-| C | Unsupported historical outcomes/raw essay failure |1216 words/valid citations,but incomplete/repetitive;no manual edits |
-| D | Incomplete questions despite isolation | False abstention;isolation/restart pass |
-| E | Generic RPC failure then incomplete reformulation | Typed retrieval timeout then false abstention;saved error detail absent |
-
-[Original report and bounded amendment](phase-10-report.md),[bounded results](agent-transcripts/phase-10/quality-pass/results.json). Selected Phase11 candidate excludes the bounded experiment and does not substitute a new score for either0/5. A clean setup rehearsal is a different verification scope.
+The five scenarios below preserve the original inputs and rubric. Recorded original, bounded, and d1f519e acceptance batches each scored **0/5**; setup and contract checks are separate. Detailed unsuccessful-case narratives have been removed from this page. See the [verification summary](verification.md) for current totals and scope. The scenario definitions and underlying sanitized measurements remain unchanged.
 
 ## Preserved pre-execution definition
 

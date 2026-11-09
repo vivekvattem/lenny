@@ -1,15 +1,52 @@
-# Handoff
+# Setup and handoff
 
-Use [README](../README.md) as the complete setup/rehearsal contract. Selected candidate is the verified pre-experiment Phase10 runtime plus reconciled docs and read-only/setup smoke helpers. All41 runtime/source hashes match;the bounded experiment remains in the normal dirty checkout/private archive,not the candidate. Exact private local snapshot revision and fresh-volume results are in [Phase11 report](phase-11-report.md). Do not claim the incomplete published snapshot reproduces this tree.
+Start with the [README](../README.md). Preserve an existing installation’s Compose project, ports, `.env`, database/trace volumes, and saved work. Never use `down -v`, drop a normal database, or change an index identity to hide a mismatch.
 
-Normal service data:303 episodes/12770 passages and existing sessions/artifacts stay untouched. Read-only corpus cache is .cache/corpus/<pinned revision> plus manifest. pgdata and chat_traces are durable;never remove/reset them. No normal outage is needed for evaluator rehearsal. Bootstrap preserves.env and creates one only if absent. Choose a unique Compose project/ports;host5432 belongs to another existing instance.
+## Isolated setup
 
-For failed requests,inspect readiness’s checks and the saved run,error code and correlation ID before retry. Keep input/client identity;completed retries replay,failed retries are explicit and bounded. Baseline retrieval errors may surface as rpc_rejected;do not call that an evidence gap. Saved failed-message detail is limited. Experimental richer typing has a timeout-copy regression and must not be silently promoted.
+For a new evaluator installation beside an existing instance, choose unused ports and a unique project before bootstrap:
 
-Run120-contract baseline tests on an isolated DB;separate restarts/outages from suites. Unit/mock/real-DB/browser fixtures/live inference are different evidence. Freeze input/config before quality measurement;never tune on observed holdout and call it unseen. Both Phase10 batches scored0/5 versus proposed4/5. Essay length/valid IDs are not acceptance;preserve raw output and record every manual change. Previous1208-word essay is a reviewed result after9 edits.
+```sh
+export COMPOSE_PROJECT_NAME="lenny_eval_$(date +%Y%m%d%H%M%S)"
+export POSTGRES_DB="$COMPOSE_PROJECT_NAME"
+export WEB_HOST_PORT=18100
+export API_HOST_PORT=18101
+export DB_HOST_PORT=55440
+export DEFAULT_PROVIDER=ollama
+export OPENROUTER_API_KEY=
+export ANTHROPIC_API_KEY=
+```
 
-Extensions/providers:register only narrow schema-validated tools,extend allowlists/policy/tests and explicit provider config,never arbitrary shell/web/filesystem. Keep provider keys server-side;no cloud fallback. OpenRouter Pi/Gemini chat’s6.513s cited smoke is verified historical evidence;Anthropic config/mocks do not prove a keyed live call. Local embeddings remain Nomic768 and must match the index digest. Replacing an embedding model requires a deliberately isolated rebuild,not mixing vectors.
+Use the README fetch, bootstrap, and ingestion commands with this environment. Poll with `python3 scripts/wait_ready.py --url http://127.0.0.1:18101/api/health/ready`; open `http://localhost:18100/workspace`. Restore the same project/port settings in a new terminal. These example ports are not an instruction to replace an existing workspace.
 
-Corpus refresh:fetch a new exact revision into a new immutable cache,validate manifest/source hashes,then run the documented bounded ingestion against the intended DB. Per-episode publication is atomic;unchanged files skip,old source snapshots remain. Review failures/retirement explicitly. Do not overwrite manifests to hide drift. Alembic migrations are additive and run before API;do not edit old migrations/downgrade normal data.
+## Full ingestion and refresh
 
-Before Prompt12:resolve/accept explicitly documented quality blockers,choose the complete publication candidate,verify fresh-source instructions and keys without exposing them,prepare a truthful2–3-minute camera demo with real local provider and a stated trade-off. Rehearsal is not a quality pass or video/upload/submission. Public push,YouTube access/form/deadline verification and submission receipt require separate authorization/action. Rights and complete coding export remain open.
+The quick start indexes three interviews. For the complete pinned snapshot, omit source filters:
+
+```sh
+python3 scripts/docker.py compose exec -T api python -m backend.ingest \
+  --root "/corpus/$CORPUS_REVISION" --batch-size 4 --deadline-seconds 3600
+```
+
+Run one ingestion process at a time. Repeat the same command to resume; committed unchanged episodes skip. Snapshot verification must pass first. Reuse a verified snapshot by linking its complete cache directory before bootstrap, preserving its revision manifest. For a new corpus revision, fetch into a new immutable directory and verify its manifest. Never overwrite old source snapshots or fabricate timestamps.
+
+Embedding model, digest, dimensions, and prefixes must match the stored index identity. Changing embeddings needs a deliberately separate index rebuild, not renaming existing vectors. Additive migrations run in the API before serving; do not edit applied migrations or downgrade normal data.
+
+## Recovery and saved work
+
+Inspect readiness, the saved run’s error code, and correlation ID before retrying. Keep the original question/request identity; completed requests replay and failed retries are explicit and bounded. An `rpc_rejected` error is not proof of insufficient evidence. [Troubleshooting](troubleshooting.md)
+
+After active work finishes, verify restart/reopen on the intended isolated project:
+
+```sh
+python3 scripts/docker.py compose restart api web
+python3 scripts/wait_ready.py --url "http://127.0.0.1:$API_HOST_PORT/api/health/ready"
+```
+
+Reopen the same session, citation, Markdown, and HTML. Compare saved content; readiness is not a live-answer pass. Do not restart services during a suite or model run.
+
+## Extending the app
+
+Use narrow schema-validated Pi tools and extend their policy tests. Keep keys server-side, cloud selection explicit, and fallback disabled. Treat transcript text as untrusted evidence; source IDs and exact spans are authoritative. Review support separately from citation existence.
+
+Run [automated/manual checks](test-plan.md) with isolated test databases. Keep mock, database, browser, and live-model evidence distinct. The reviewed essay has nine disclosed edits; frozen acceptance remains 0/5. [Results](verification.md)
