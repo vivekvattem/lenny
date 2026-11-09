@@ -153,6 +153,9 @@ class MultiPartSelectionTests(unittest.TestCase):
         self.assertEqual(question_parts('What is the must-have survey?'),1)
         self.assertEqual(question_parts('How did Lookout change onboarding'),1)
         self.assertEqual(question_parts('Define the survey and what threshold did Sean Ellis use?'),2)
+        self.assertEqual(question_parts('Define the survey\r\nHow did Lookout apply it'),2)
+        self.assertEqual(question_parts('1. Define the survey\n2. Describe the threshold'),2)
+        self.assertEqual(question_parts('What threshold did\nSean Ellis use'),1)
         self.assertEqual(question_parts(''),1)
 
     def test_every_part_of_a_multi_part_question_reaches_the_model(self):
@@ -331,6 +334,17 @@ class MultiPartCoverageTests(unittest.TestCase):
         self.assertEqual([i['id'] for i in items],['E'+str(k+1) for k in range(len(items))])
         for i in items:
             p=sources[i['source_id']];self.assertEqual(i['text'],p.original_text[i['char_start']-p.char_start:i['char_end']-p.char_start])
+
+    def test_two_unpunctuated_lines_consider_late_passage_under_byte_cap(self):
+        source=self.passages()
+        for passage in source.passages[:-1]:
+            passage.original_text='Guest (00:01):\n'+'\n\n'.join(
+                f'Survey background {index}: '+('generic detail '*29)+'ended.'
+                for index in range(2)
+            )
+        items,_=sentence_items(source,'Define the survey\nHow did Lookout redesign onboarding')
+        self.assertTrue(any('redesigning onboarding' in item['text'] for item in items))
+        self.assertLessEqual(sum(len(item['text'].encode()) for item in items),6000)
 
     def test_ties_spread_across_passages_before_any_passage_gets_a_third_slot(self):
         items,_=sentence_items(self.passages(),MultiPartSelectionTests.QUESTION)

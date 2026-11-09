@@ -54,8 +54,9 @@ export default function (pi: ExtensionAPI) {
     const payload = event.payload as Record<string, unknown>;
     if(provider==='openrouter')return openrouterConversationPayload(payload,requests,evidenceIds,process.env.LENNY_CHAT_QUESTION||'');
     if(provider==='anthropic-cloud'){
-      console.error(JSON.stringify({event:"provider_request",provider,model:ctx.model?.id,request:requests,max_tokens:128}));
-      return cloudConversationPayload(payload,requests,evidenceIds,process.env.LENNY_CHAT_QUESTION||'');
+      const request=cloudConversationPayload(payload,requests,evidenceIds,process.env.LENNY_CHAT_QUESTION||'');
+      console.error(JSON.stringify({event:"provider_request",provider,model:ctx.model?.id,request:requests,max_tokens:request.max_tokens}));
+      return request;
     }
     const messages = (payload.messages as any[]).map(m => ({...m}));
     const system = messages.find(m => m.role === 'system' || m.role === 'developer');
@@ -65,8 +66,9 @@ export default function (pi: ExtensionAPI) {
     if (requests === 2) messages.push({role:'user',content:'CURRENT QUESTION: '+process.env.LENNY_CHAT_QUESTION+'\nChoose the sentence for each part of the question (up to 4), or NONE alone if the answer is absent. A passage about a related topic is not an answer.'});
     const promptBytes=Buffer.byteLength(JSON.stringify(messages),'utf8');
     if (promptBytes>12800) throw new Error('model input byte budget exhausted');
-    console.error(JSON.stringify({event: "provider_request", provider: ctx.model.provider, model: ctx.model.id, request: requests, max_tokens: 128, prompt_bytes:promptBytes, mode: "hybrid"}));
-    return {...payload, messages, max_tokens: requests === 2 ? 320 : 128, temperature: 0, reasoning_effort: "none",
+    const maxTokens=requests===2?320:128;
+    console.error(JSON.stringify({event: "provider_request", provider: ctx.model.provider, model: ctx.model.id, request: requests, max_tokens: maxTokens, prompt_bytes:promptBytes, mode: "hybrid"}));
+    return {...payload, messages, max_tokens: maxTokens, temperature: 0, reasoning_effort: "none",
       ...(requests === 1 ? {tool_choice: {type: "function", function: {name: "search_transcripts"}}} :
         {tool_choice: "none", response_format: {type: "json_schema", json_schema: {name: "evidence_selection", strict: true, schema:schemaFor(evidenceIds)}}}),
     };

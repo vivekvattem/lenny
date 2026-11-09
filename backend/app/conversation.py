@@ -93,7 +93,12 @@ def load_run(engine,settings,session_id,run_id):
 
 
 MAX_SELECTED=4
-_PART_SPLIT=re.compile(r'\?|;|,\s*(?:and\s+)?(?=(?:what|how|why|when|which|who|where|and)\b)|\band\s+(?=(?:what|how|why|when|which|who|where)\b)',re.I)
+_QUESTION_WORDS=r'(?:what|how|why|when|which|who|where)\b'
+_PART_SPLIT=re.compile(
+    rf'\?|;|,\s*(?:and\s+)?(?={_QUESTION_WORDS}|and\b)|\band\s+(?={_QUESTION_WORDS})'
+    rf'|\r?\n[ \t]*(?:[-*][ \t]+|\d+[.)][ \t]+|(?={_QUESTION_WORDS}))',
+    re.I,
+)
 
 
 def question_parts(query):
@@ -114,7 +119,8 @@ def sentence_items(result,query):
     # A one-part question keeps the original two candidate slots per passage; a
     # multi-part question gets one slot per part (bounded) so every part can be
     # supported. The byte cap below still bounds the whole packet.
-    slots=min(MAX_SELECTED,max(2,question_parts(query)))
+    part_count=question_parts(query)
+    slots=min(MAX_SELECTED,max(2,part_count))
     # Pronominal/connective matches cannot displace the subject of a follow-up.
     terms={w for w in re.findall(r'[a-z]{3,}',query.casefold()) if w not in {'the','what','does','their','and','how','that','from','with','this','current','question','according','interview','transcript','for','they'}}
     items=[];sources={};pool=[]
@@ -141,7 +147,7 @@ def sentence_items(result,query):
                     end=following_end;quote=p.original_text[start:end]
             score=len(terms & set(re.findall(r'[a-z]{3,}',quote.casefold())))
             spans.append((score,start,end,quote))
-        if slots>2:
+        if part_count>1:
             # Multi-part: rank across ALL passages (below) so one passage cannot
             # use the shared byte budget and starve the others.
             for within,(score,start,end,quote) in enumerate(sorted(spans,key=lambda x:(-x[0],x[1]))):pool.append((score,within,passage_index,start,end,quote,p,label))
@@ -155,7 +161,7 @@ def sentence_items(result,query):
             items.append(evidence_item(len(items)+1,label,p,start,end,quote))
             selected.append((start,end))
             if len(selected)==2:break
-    if slots>2:
+    if part_count>1:
         taken=[];per_passage=defaultdict(list);used=0
         # Higher score first; equal scores prefer each passage's best sentence before any
         # passage's second, then retrieval rank, so ties spread across passages.
